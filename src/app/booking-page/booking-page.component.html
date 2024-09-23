@@ -1,0 +1,80 @@
+<div class="container booking-container mt-3">
+  <!-- Header Section
+  <div class="row justify-content-center mb-2">
+    <div class="col text-center">
+      <h1 class="display-4">Book Your Seats Now!</h1>
+      <p class="lead">Select the number of seats and confirm your booking with ease.</p>
+    </div>
+  </div> -->
+
+  <!-- Seat Grid Section -->
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-4 seats-section">
+      <h2 class="text-center mb-2">Available Seats</h2>
+      <div class="seats-grid">
+        <div *ngFor="let row of seats; let i = index" class="seat-row">
+          <div *ngFor="let seat of row"
+            [ngClass]="{
+              'seat': true,
+              'selected': isSelected(seat),
+              'booked': isBooked(seat)
+            }"
+            class="btn btn-outline-primary seat-button">
+            {{ seat.number }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lower Division: Seat Selection -->
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 text-center">
+
+  <!-- Legend Section (Centered) -->
+  <div class="row justify-content-center mt-2">
+      <div class="col-auto">
+        <div class="legend-section d-flex justify-content-center">
+          <div class="legend-item d-flex align-items-center mr-3">
+            <div class="legend-tile available-tile"></div>
+            <span class="ml-2">Available</span>
+          </div>
+          <div class="legend-item d-flex align-items-center">
+            <div class="legend-tile booked-tile"></div>
+            <span class="ml-2">Booked</span>
+          </div>
+        </div>
+      </div>
+  </div>
+
+    <h3 class="mb-3">Select the number of seats (Max 7)</h3>
+    <div class="seat-buttons mb-2">
+      <button
+        *ngFor="let num of [1, 2, 3, 4, 5, 6, 7]"
+        (click)="selectSeats(num)"
+        [ngClass]="{'btn-primary': num === selectedSeats, 'btn-secondary': num !== selectedSeats}"
+        class="btn seat-select-button mr-2 mb-2"
+        [disabled]="num > availableSeats || allSeatsBooked">
+        {{ num }}
+      </button>
+    </div>
+
+      <!-- Final confirmation button -->
+      <button class="btn btn-success btn-lg" [disabled]="!selectedSeats" (click)="confirmSeatSelection()">
+        Confirm Selection
+      </button>
+
+      <!-- Display booked seats for the current user -->
+      <div *ngIf="currentUserBookedSeats.length > 0" class="mt-3">
+        <h4>Your Booked Seats: {{ getCurrentUserBookedSeats() }}</h4>
+      </div>
+    </div>
+  </div>
+
+  <!-- All seats booked message -->
+  <div *ngIf="allSeatsBooked" class="row justify-content-center mt-4">
+    <div class="col text-center">
+      <h4>All seats have been booked!</h4>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+/* Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #85a9eb, #2a5298); /* Gradient background */
+  color: white;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Hero Content */
+.hero-content {
+  max-width: 600px;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Call-to-Action Button */
+.cta-button {
+  background-color: #ff6b6b;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.cta-button:hover {
+  background-color: #ff4b4b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .cta-button {
+    font-size: 16px;
+    padding: 12px 25px;
+  }
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
